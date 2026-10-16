@@ -7,10 +7,15 @@ DeCoDE is designed to identify robust, transdiagnostic brain–behavior dimensio
 ---
 
 Yong Jiao, Xiaoyu Tong, Gregory A. Fonzo, Ian H. Gotlib, Kilian M. Pohl, Theodore D. Satterthwaite, Jing Jiang, Yu Zhang
-[**Deep Learning of Brain–Behavior Dimensions Identifies Transdiagnostic Biotypes in Youth with ADHD and Anxiety Disorders**](https://www.biorxiv.org/content/10.1101/2025.10.13.682243v1.abstract)
+
+[**Deep learning of brain–behavior dimensions identifies transdiagnostic biotypes in youth with ADHD and anxiety disorders**](https://doi.org/10.1038/s44220-026-00740-3)
+
+*Nature Mental Health* (2026). [(SharedIt)](https://rdcu.be/MWuy3wYZTuCa)
 
 <div align=center>
-<img src="assets/flowchart.png" width="800">
+<a href="https://www.nature.com/articles/s44220-026-00740-3/figures/1">
+<img src="assets/framework.png" width="1000" alt="DeCoDE framework: contrastive learning of brain–behavior dimensions and biotype discovery, followed by biotype assignment for new cases using functional connectivity alone.">
+</a>
 </div>
 
 ## Project Structure
@@ -18,7 +23,7 @@ Yong Jiao, Xiaoyu Tong, Gregory A. Fonzo, Ian H. Gotlib, Kilian M. Pohl, Theodor
 ```text
 .
 ├── assets/
-│   └── flowchart.png                   # Method overview figure
+│   └── framework.png                   # Method overview figure
 ├── data.py                             # Shared input loading and score aggregation
 ├── hyperparameter_config.json          # Search spaces and training settings
 ├── models.py                           # cVAE and GCCA model components
@@ -122,3 +127,18 @@ python 3_independent_validation.py \
 ```
 
 Search, fit, and validation outputs are written to `outputs/` by default.
+
+## Citation
+
+If you find this code useful, please consider citing our paper:
+
+> Jiao, Y., Tong, X., Fonzo, G. A., Gotlib, I. H., Pohl, K. M., Satterthwaite, T. D., Jiang, J. & Zhang, Y. Deep learning of brain–behavior dimensions identifies transdiagnostic biotypes in youth with ADHD and anxiety disorders. *Nat. Mental Health* (2026). https://doi.org/10.1038/s44220-026-00740-3
+
+```bibtex
+@article{Jiao2026,
+  author = {Jiao, Yong and Tong, Xiaoyu and Fonzo, Gregory A. and Gotlib, Ian H. and Pohl, Kilian M. and Satterthwaite, Theodore D. and Jiang, Jing and Zhang, Yu},
+  title = {Deep learning of brain--behavior dimensions identifies transdiagnostic biotypes in youth with {ADHD} and anxiety disorders},
+  journal = {Nature Mental Health},
+  year = {2026}
+}
+```

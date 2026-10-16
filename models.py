@@ -218,13 +218,3 @@ def GCCA(
     s = s.topk(top_K)[0]
     corr = torch.sum(s)
     return -corr
-
-
-def project(
-    X: torch.Tensor,
-    proj: torch.Tensor,
-    center: torch.Tensor,
-):
-    """Projects data using the canonical correlation matrix."""
-    canonical_score = X - center
-    return torch.mm(canonical_score, proj)

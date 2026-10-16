@@ -23,7 +23,7 @@ from data import (
     load_data,
     participant_average_scores,
 )
-from models import GCCA, cVAE, project
+from models import GCCA, cVAE
 
 
 ROOT = Path(__file__).resolve().parent
@@ -260,20 +260,19 @@ class DeCoDEFold(L.LightningModule):
         )
         latent_train_center = latent_train.mean(dim=0, keepdim=True)
         behavior_train_center = behavior_train.mean(dim=0, keepdim=True)
+        # Apply the fold's training centers to held-out data before projection.
         fc_scores = (
-            project(
-                latent_validation,
+            torch.mm(
+                latent_validation - latent_train_center,
                 loadings[0],
-                latent_train_center,
             )
             .detach()
             .cpu()
             .numpy()
         )
-        behavior_scores = project(
-            behavior_validation,
+        behavior_scores = torch.mm(
+            behavior_validation - behavior_train_center,
             loadings[1],
-            behavior_train_center,
         ).detach().cpu().numpy()
         _, participant_scores = participant_average_scores(
             self.validation_run_participant_ids,
